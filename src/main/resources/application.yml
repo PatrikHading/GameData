@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: GameData
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/GameData?createDatabaseIfNotExist=true
+    username: root
+    password: Pa55word
