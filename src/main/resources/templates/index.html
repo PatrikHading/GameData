@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - GameData Registration</title>
+</head>
+<body>
+<h1>GameData Registration</h1>
+
+<div class="section">
+    <p>Add players to database</p>
+    <a th:href="@{/addPlayers}">
+        <button>Add Players</button>
+    </a>
+</div>
+
+<div class="section">
+    <p>Start new session</p>
+    <button class="start-button">Start</button>
+</div>
+
+<div class="section">
+    <p>Registered data</p>
+    <button class="archive-button">Archive</button>
+</div>
+</body>
+</html>
