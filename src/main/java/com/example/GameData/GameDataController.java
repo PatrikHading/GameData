@@ -61,7 +61,9 @@ public class GameDataController {
     }
 
     @GetMapping("/game")
-    public String game() {
+    public String game(Model model) {
+        List<Player> availablePlayers = playerService.getAllPlayers();
+        model.addAttribute("availablePlayers", availablePlayers);
         return "game";
     }
 

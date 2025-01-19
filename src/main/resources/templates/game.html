@@ -11,13 +11,16 @@
             margin: 20px 0;
         }
 
-
         .team-box {
             width: 48%;
             height: 600px;
             border: 2px solid black;
             padding: 10px;
             box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .team-header {
@@ -27,28 +30,10 @@
             margin-bottom: 10px;
         }
 
-        .button-container {
+        .actions-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .button-container div {
-            width: 48%;
-        }
-
-        .team1-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: flex-start;
-        }
-
-        .team2-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: flex-end;
+            align-items: center;
         }
 
         .centered-buttons {
@@ -63,8 +48,41 @@
             font-size: 1.2em;
         }
 
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .form-container .player-select {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .align-right {
+            align-items: end;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
         .section {
-            text-align: right;
+            width: 100%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Make buttons and dropdown align in rows for both teams */
+        .button-container button {
+            padding: 10px;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -78,45 +96,58 @@
 
     <div class="team-box">
         <div class="team-header">TEAM 2</div>
+
     </div>
 </div>
 
-<div class="button-container">
-    <div class="team1-buttons">
-        <div class="section">
-            <a th:href="@{/}">
-                <button>Add Players to Team 1</button>
-            </a>
+<div class="actions-container">
+    <!-- Team 1 form and buttons -->
+    <div class="form-container">
+        <div class="player-select">
+            <label for="availablePlayersTeam1" class="hidden">Select Player for Team 1</label>
+            <select name="playerId" id="availablePlayersTeam1">
+                <option value="">Select Player</option>
+                <th:block th:each="player : ${availablePlayers}">
+                    <option th:value="${player.id}" th:text="${player.name + ' ' + player.lastname}"></option>
+                </th:block>
+            </select>
+            <button type="submit">Add to Team 1</button>
         </div>
-        <div class="section">
+        <div class="button-container">
             <a th:href="@{/}">
                 <button>Remove Players from Team 1</button>
             </a>
         </div>
     </div>
 
-    <div class="team2-buttons">
-        <div class="section">
-            <a th:href="@{/}">
-                <button>Add Players to Team 2</button>
-            </a>
+    <!-- Session Buttons -->
+    <div class="centered-buttons">
+        <button>Start Session</button>
+        <button>GOAL</button>
+        <button>End Session</button>
+    </div>
+
+    <!-- Team 2 form and buttons -->
+    <div class="form-container align-right">
+        <div class="player-select">
+            <label for="availablePlayersTeam2" class="hidden">Select Player for Team 2</label>
+            <select name="playerId" id="availablePlayersTeam2">
+                <option value="">Select Player</option>
+                <th:block th:each="player : ${availablePlayers}">
+                    <option th:value="${player.id}" th:text="${player.name + ' ' + player.lastname}"></option>
+                </th:block>
+            </select>
+            <button type="submit">Add to Team 2</button>
         </div>
-        <div class="section">
+        <div class="button-container">
             <a th:href="@{/}">
                 <button>Remove Players from Team 2</button>
             </a>
         </div>
     </div>
 </div>
-<div class="centered-buttons">
-    <button>Start Session</button>
-    <button>GOAL</button>
-    <button>End Session</button>
-</div>
+
+
 
 </body>
 </html>
-
-
-
-
