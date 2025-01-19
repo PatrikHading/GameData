@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
+import java.util.List;
+
 @Controller
 public class GameDataController {
 
@@ -41,5 +43,17 @@ public class GameDataController {
         model.addAttribute("message", "Player added successfully");
         return "redirect:/addPlayers";
 
+    }
+
+    @GetMapping("/archive")
+    public String archive() {
+        return "archive";
+    }
+
+    @GetMapping("/registeredPlayers")
+    public String getAllPlayers(Model model) {
+        List<Player> players = playerService.getAllPlayers();
+        model.addAttribute("players", players);
+        return "registeredPlayers";
     }
 }

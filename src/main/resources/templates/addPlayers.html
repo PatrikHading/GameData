@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Players</title>
 </head>
 <body>
@@ -26,8 +28,12 @@
         <button type="submit" class="submit-button">Submit</button>
     </div>
 
-    <div>
-        <button type="button" class="submit-button" onclick="window.location.href='/'">Go to Index</button>
+    <div style="margin-bottom: 25px"></div>
+
+    <div class="section">
+        <a th:href="@{/}">
+            <button>Back to home</button>
+        </a>
     </div>
 </form>
 

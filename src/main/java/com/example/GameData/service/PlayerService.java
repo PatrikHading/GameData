@@ -6,6 +6,8 @@ import com.example.GameData.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlayerService {
 
@@ -16,9 +18,12 @@ public class PlayerService {
         this.playerRepository = playerRepository;
     }
 
-    public Player savePlayer(Player player) {
+    public void savePlayer(Player player) {
         Player savedPlayer = playerRepository.save(player);
         System.out.println("Player saved: " + savedPlayer);
-        return savedPlayer;
+    }
+
+    public List<Player> getAllPlayers() {
+        return playerRepository.findAll();
     }
 }
