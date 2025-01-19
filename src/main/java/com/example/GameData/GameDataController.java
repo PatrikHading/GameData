@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
+
 import java.util.List;
 
 @Controller
 public class GameDataController {
 
     private final PlayerService playerService;
+
+
 
     @Autowired
     public GameDataController(PlayerService playerService) {
@@ -56,4 +59,10 @@ public class GameDataController {
         model.addAttribute("players", players);
         return "registeredPlayers";
     }
+
+    @GetMapping("/game")
+    public String game() {
+        return "game";
+    }
+
 }
