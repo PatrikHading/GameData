@@ -20,7 +20,6 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         .team-header {
@@ -28,6 +27,40 @@
             font-weight: bold;
             text-align: center;
             margin-bottom: 10px;
+            padding: 5px;
+            border-bottom: 1px solid black;
+        }
+
+        .player-grid {
+            width: 100%;
+            height: calc(100% - 50px);
+        }
+
+        .player-row {
+            display: flex;
+            border-bottom: 1px solid black;
+            height: 25px;
+        }
+
+        .player-name {
+            flex: 1;
+            border-right: 1px solid black;
+            padding: 5px;
+        }
+
+        .stat-box {
+            width: 40px;
+            border-right: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .stat-box:last-child {
+            border-right: none;
+        }
+
+        .player-row:last-child {
+            border-bottom: none;
         }
 
         .actions-container {
@@ -79,7 +112,6 @@
             display: none;
         }
 
-        /* Make buttons and dropdown align in rows for both teams */
         .button-container button {
             padding: 10px;
             font-size: 1.1em;
@@ -92,11 +124,56 @@
 <div class="teams-container">
     <div class="team-box">
         <div class="team-header">TEAM 1</div>
+        <div class="player-grid">
+            <!-- 20 rows for Team 1 -->
+            <div class="player-row"><div class="player-name">Name</div><div class="stat-box">Goal</div><div class="stat-box">Assist</div><div class="stat-box">PIM</div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+        </div>
     </div>
 
     <div class="team-box">
         <div class="team-header">TEAM 2</div>
-
+        <div class="player-grid">
+            <!-- 20 rows for Team 2 -->
+            <div class="player-row"><div class="player-name">Name</div><div class="stat-box">Goal</div><div class="stat-box">Assist</div><div class="stat-box">PIM</div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+        </div>
     </div>
 </div>
 
@@ -146,8 +223,6 @@
         </div>
     </div>
 </div>
-
-
 
 </body>
 </html>
