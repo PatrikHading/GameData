@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,101 +125,104 @@
     <div class="team-box">
         <div class="team-header">TEAM 1</div>
         <div class="player-grid">
-            <!-- 20 rows for Team 1 -->
-            <div class="player-row"><div class="player-name">Name</div><div class="stat-box">Goal</div><div class="stat-box">Assist</div><div class="stat-box">PIM</div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row">
+                <div class="player-name">Name</div>
+                <div class="stat-box">Goal</div>
+                <div class="stat-box">Assist</div>
+                <div class="stat-box">PIM</div>
+            </div>
+            <!-- Team 1 Players -->
+            <div class="player-row" th:each="player : ${team1Players}">
+                <div class="player-name" th:text="${player.name + ' ' + player.lastname + ' ' + player.jerseynumber}"></div>
+                <div class="stat-box">0</div>
+                <div class="stat-box">0</div>
+                <div class="stat-box">0</div>
+            </div>
+            <!-- Empty rows to fill remaining space -->
+            <div class="player-row" th:each="i : ${#numbers.sequence(0, #lists.size(team1Players) - 1)}">
+                <div class="player-name"></div>
+                <div class="stat-box"></div>
+                <div class="stat-box"></div>
+                <div class="stat-box"></div>
+            </div>
         </div>
     </div>
 
     <div class="team-box">
         <div class="team-header">TEAM 2</div>
         <div class="player-grid">
-            <!-- 20 rows for Team 2 -->
-            <div class="player-row"><div class="player-name">Name</div><div class="stat-box">Goal</div><div class="stat-box">Assist</div><div class="stat-box">PIM</div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
-            <div class="player-row"><div class="player-name"></div><div class="stat-box"></div><div class="stat-box"></div><div class="stat-box"></div></div>
+            <div class="player-row">
+                <div class="player-name">Name</div>
+                <div class="stat-box">Goal</div>
+                <div class="stat-box">Assist</div>
+                <div class="stat-box">PIM</div>
+            </div>
+            <!-- Team 1 Players -->
+            <div class="player-row" th:each="player : ${team2Players}">
+                <div class="player-name" th:text="${player.name}"></div>
+                <div class="stat-box">0</div>
+                <div class="stat-box">0</div>
+                <div class="stat-box">0</div>
+            </div>
+            <!-- Empty rows to fill remaining space -->
+            <div class="player-row" th:each="i : ${#numbers.sequence(0, #lists.size(team2Players) - 1)}">
+                <div class="player-name"></div>
+                <div class="stat-box"></div>
+                <div class="stat-box"></div>
+                <div class="stat-box"></div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="actions-container">
-    <!-- Team 1 form and buttons -->
     <div class="form-container">
         <div class="player-select">
-            <label for="availablePlayersTeam1" class="hidden">Select Player for Team 1</label>
-            <select name="playerId" id="availablePlayersTeam1">
-                <option value="">Select Player</option>
-                <th:block th:each="player : ${availablePlayers}">
-                    <option th:value="${player.id}" th:text="${player.name + ' ' + player.lastname}"></option>
-                </th:block>
-            </select>
-            <button type="submit">Add to Team 1</button>
+            <form th:action="@{/addToTeam1}" method="post">
+                <label for="availablePlayersTeam1" class="hidden">Select Player for Team 1</label>
+                <select name="playerId" id="availablePlayersTeam1">
+                    <option value="" disabled selected>Select Player</option>
+                    <option th:each="player : ${availablePlayers}"
+                            th:value="${player.id}"
+                            th:text="${player.name}">
+                    </option>
+                </select>
+                <button type="submit">Add to Team 1</button>
+            </form>
         </div>
         <div class="button-container">
-            <a th:href="@{/}">
-                <button>Remove Players from Team 1</button>
-            </a>
+            <form action="/removeAllFromTeam1" method="post">
+                <button type="submit">Remove All Players from Team 1</button>
+            </form>
         </div>
     </div>
 
     <!-- Session Buttons -->
     <div class="centered-buttons">
         <button>Start Session</button>
-        <button>GOAL</button>
+        <button>Goal</button>
+        <button>Assist</button>
         <button>End Session</button>
     </div>
 
     <!-- Team 2 form and buttons -->
     <div class="form-container align-right">
         <div class="player-select">
-            <label for="availablePlayersTeam2" class="hidden">Select Player for Team 2</label>
-            <select name="playerId" id="availablePlayersTeam2">
-                <option value="">Select Player</option>
-                <th:block th:each="player : ${availablePlayers}">
-                    <option th:value="${player.id}" th:text="${player.name + ' ' + player.lastname}"></option>
-                </th:block>
-            </select>
-            <button type="submit">Add to Team 2</button>
+            <form th:action="@{/addToTeam2}" method="post">
+                <label for="availablePlayersTeam2" class="hidden">Select Player for Team 2</label>
+                <select name="playerId" id="availablePlayersTeam2">
+                    <option value="" disabled selected>Select Player</option>
+                    <th:block th:each="player : ${availablePlayers}">
+                        <option th:value="${player.id}" th:text="${player.name + ' ' + player.lastname}"></option>
+                    </th:block>
+                </select>
+                <button type="submit">Add to Team 2</button>
+            </form>
         </div>
         <div class="button-container">
-            <a th:href="@{/}">
-                <button>Remove Players from Team 2</button>
-            </a>
+            <form action="/removeAllFromTeam2" method="post">
+                <button type="submit">Remove All Players from Team 2</button>
+            </form>
         </div>
     </div>
 </div>
