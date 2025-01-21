@@ -116,12 +116,21 @@
             padding: 10px;
             font-size: 1.1em;
         }
+
+        input.stat-input {
+            width: 40px;
+            text-align: center;
+            padding: 2px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <body>
 <h1>Game Start</h1>
 
 <div class="teams-container">
+    <!-- Team 1 Box -->
     <div class="team-box">
         <div class="team-header">TEAM 1</div>
         <div class="player-grid">
@@ -134,9 +143,15 @@
             <!-- Team 1 Players -->
             <div class="player-row" th:each="player : ${team1Players}">
                 <div class="player-name" th:text="${player.name + ' ' + player.lastname + ' ' + player.jerseynumber}"></div>
-                <div class="stat-box">0</div>
-                <div class="stat-box">0</div>
-                <div class="stat-box">0</div>
+                <div class="stat-box">
+                    <input type="number" class="stat-input" min="0" value="0">
+                </div>
+                <div class="stat-box">
+                    <input type="number" class="stat-input" min="0" value="0">
+                </div>
+                <div class="stat-box">
+                    <input type="number" class="stat-input" min="0" value="0">
+                </div>
             </div>
             <!-- Empty rows to fill remaining space -->
             <div class="player-row" th:each="i : ${#numbers.sequence(0, #lists.size(team1Players) - 1)}">
@@ -148,6 +163,7 @@
         </div>
     </div>
 
+    <!-- Team 2 Box -->
     <div class="team-box">
         <div class="team-header">TEAM 2</div>
         <div class="player-grid">
@@ -157,12 +173,18 @@
                 <div class="stat-box">Assist</div>
                 <div class="stat-box">PIM</div>
             </div>
-            <!-- Team 1 Players -->
+            <!-- Team 2 Players -->
             <div class="player-row" th:each="player : ${team2Players}">
-                <div class="player-name" th:text="${player.name}"></div>
-                <div class="stat-box">0</div>
-                <div class="stat-box">0</div>
-                <div class="stat-box">0</div>
+                <div class="player-name" th:text="${player.name + ' ' + player.lastname + ' ' + player.jerseynumber}"></div>
+                <div class="stat-box">
+                    <input type="number" class="stat-input" min="0" value="0">
+                </div>
+                <div class="stat-box">
+                    <input type="number" class="stat-input" min="0" value="0">
+                </div>
+                <div class="stat-box">
+                    <input type="number" class="stat-input" min="0" value="0">
+                </div>
             </div>
             <!-- Empty rows to fill remaining space -->
             <div class="player-row" th:each="i : ${#numbers.sequence(0, #lists.size(team2Players) - 1)}">
@@ -200,8 +222,6 @@
     <!-- Session Buttons -->
     <div class="centered-buttons">
         <button>Start Session</button>
-        <button>Goal</button>
-        <button>Assist</button>
         <button>End Session</button>
     </div>
 
